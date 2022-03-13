@@ -1,0 +1,226 @@
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.StringTokenizer;
+import java.awt.event.ActionEvent;
+
+public class TLCO {
+	
+	DecimalFormat priceformatter = new DecimalFormat("#0.00");
+	static public String custname;
+
+	JFrame TLCOFrame;
+
+	/**
+	 * Create the application.
+	 */
+	public TLCO(boolean member) {
+		TLCOFrame = new JFrame();
+		TLCOFrame.getContentPane().setBackground(new Color(204, 153, 255));
+		TLCOFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Your Order");
+		lblNewLabel.setForeground(new Color(102, 0, 204));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 17));
+		lblNewLabel.setBounds(10, 11, 297, 28);
+		TLCOFrame.getContentPane().add(lblNewLabel);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setForeground(new Color(255, 255, 255));
+		textArea.setBackground(new Color(204, 153, 255));
+		textArea.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+		textArea.setBounds(20, 50, 275, 165);
+		TLCOFrame.getContentPane().add(textArea);
+		
+		//gets data and pass it to the next frame
+		JButton btnNewButton_1 = new JButton("Check Out");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				TLreceipt tlr =  new TLreceipt(custname, member);
+				tlr.TLRFrame.setVisible(true);
+				TLCOFrame.dispose();
+			}
+		});
+		
+		btnNewButton_1.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton_1.setBackground(new Color(153, 51, 255));
+		btnNewButton_1.setBounds(169, 239, 103, 23);
+		TLCOFrame.getContentPane().add(btnNewButton_1);
+		
+		//used to go back to previous page
+		JButton btnNewButton_1_1 = new JButton("Back");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				TLMenu tlm2 = new TLMenu(member);
+				
+				tlm2.MenuFrame.setVisible(true);
+				TLCOFrame.dispose();
+			}
+		});
+		
+		btnNewButton_1_1.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton_1_1.setBackground(new Color(153, 51, 255));
+		btnNewButton_1_1.setBounds(45, 239, 103, 23);
+		TLCOFrame.getContentPane().add(btnNewButton_1_1);
+		TLCOFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\zi\\Documents\\SEM 2 (ongoing)\\SWC Work\\Project\\unnamed(2).png"));
+		TLCOFrame.setBounds(100, 100, 331, 310);
+		TLCOFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		FileInputStream fip;
+		String allorders = "";
+		try {
+			fip = new FileInputStream("tealiveorders.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(fip));
+			String line = br.readLine();
+			double totalprice = 0.00;
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				String tealivename = st.nextToken();
+				String selection = st.nextToken();
+				int quantity = Integer.parseInt(st.nextToken());
+				
+				//used to calculate amount of items,price and total price
+				if(tealivename.equalsIgnoreCase("originalpearlselect")) {
+					allorders += "ORIGINAL PEARL \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("blackdiamond")) {
+					allorders += "BLACK DIAMOND \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.60) + "\n";
+					totalprice = totalprice + (quantity*8.60);
+				}
+				if(tealivename.equalsIgnoreCase("redbean")) {
+					allorders += "RED BEAN PEARL \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("hazelnutmilk")) {
+					allorders += "HAZELNUT MILK TEA \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("earlgreymilk")) {
+					allorders += "EARL GREY MILK TEA \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("bbmilk")) {
+					allorders += "BANG BANG MILK TEA \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("bbfresh")) {
+					allorders += "BANG BANG FRESH MILK  -  " + quantity + "\tRM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("bbchocolate")) {
+					allorders += "BANG BANG CHOCOLATE  -  " + quantity + "\tRM" + priceformatter.format(quantity*9.00) + "\n";
+					totalprice = totalprice + (quantity*9.00);
+				}
+				if(tealivename.equalsIgnoreCase("bbcoffee")) {
+					allorders += "BANG BANG COFFEE \t-  " + quantity + "\tRM" + priceformatter.format(quantity*9.00) + "\n";
+					totalprice = totalprice + (quantity*9.00);
+				}
+				if(tealivename.equalsIgnoreCase("smthsstrawberry")) {
+					allorders += "STRAWBERRY PUDDING   -  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthsmango")) {
+					allorders += "MANGO PASSION FRUIT  -  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthslychee")) {
+					allorders += "LYCHEE SAGO TEA  \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthsmalty")) {
+					allorders += "MALTY(HORLICKS) \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("ctroselle")) {
+					allorders += "RADIANT ROSELLE TEA   -  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("ctrose")) {
+					allorders += "ROSE PUER TEA LATTE   -  " + quantity + "\tRM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ctearllatte")) {
+					allorders += "EARL GREY TEA LATTE   -  " + quantity + "\tRM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ctearl")) {
+					allorders += "EARL GREY TEA   \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.15) + "\n";
+					totalprice = totalprice + (quantity*7.15);
+				}
+				if(tealivename.equalsIgnoreCase("ctjasmine")) {
+					allorders += "JASMINE GREEN TEA \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.15) + "\n";
+					totalprice = totalprice + (quantity*7.15);
+				}
+				if(tealivename.equalsIgnoreCase("cclava")) {
+					allorders += "MILK COCO SHAKA LAVA  -  " + quantity + "\tRM" + priceformatter.format(quantity*9.60) + "\n";
+					totalprice = totalprice + (quantity*9.60);
+				}
+				if(tealivename.equalsIgnoreCase("ccsuper")) {
+					allorders += "SUPERIOR COCO \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("cchazelnut")) {
+					allorders += "HAZELNUT COCO \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("cclatte")) {
+					allorders += "COCO LATTE \t-  " +quantity + "\tRM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ccsmths")) {
+					allorders += "COCO SMOOTHIES \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfsign")) {
+					allorders += "SIGNATURE COFFEE \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cflatte")) {
+					allorders += "LATTE \t\t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfmocha")) {
+					allorders += "COCO MOCHA \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfhazelnut")) {
+					allorders += "HAZELNUT LATTE \t-  " + quantity + "\tRM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfamericano")) {
+					allorders += "AMERICANO \t-  " + quantity + "\tRM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				line = br.readLine();
+				
+			}
+			
+			fip.getChannel().position(0);
+			br = new BufferedReader(new InputStreamReader(fip));
+			br.close();		
+			
+			//used to display user's item amount,price,total price(not include discount price)
+			textArea.setText(allorders + "\n...................................................\n" + "Total Price RM : \t\t   " 
+							+ priceformatter.format(totalprice) + "\n...................................................");
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+}
