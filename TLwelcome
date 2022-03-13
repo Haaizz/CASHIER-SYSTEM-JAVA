@@ -1,0 +1,126 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JCheckBox;
+
+public class TLwelcome {
+
+	private JFrame frame;
+	private JTextField textField_Name;
+	public static TLMenu tlm;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TLwelcome window = new TLwelcome();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public TLwelcome() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 11));
+		frame.getContentPane().setBackground(new Color(204, 153, 255));
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\zi\\Documents\\SEM 2 (ongoing)\\SWC Work\\Project\\tealive-logo2.png"));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(115, 62, 199, 55);
+		frame.getContentPane().add(lblNewLabel);
+		
+		textField_Name = new JTextField();
+		textField_Name.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) 
+			{
+				char c = e.getKeyChar();
+				
+				if(!Character.isAlphabetic(c)||(c == KeyEvent.VK_BACK_SPACE)||(c == KeyEvent.VK_DELETE))
+				{
+					e.consume();
+				}
+			}
+		});
+		textField_Name.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 15));
+		textField_Name.setBounds(173, 141, 124, 24);
+		frame.getContentPane().add(textField_Name);
+		textField_Name.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("ENTER NAME: ");
+		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 15));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_1.setBounds(59, 141, 119, 24);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		
+		JLabel lblWelcomeTo = new JLabel("Welcome to");
+		lblWelcomeTo.setForeground(new Color(102, 0, 153));
+		lblWelcomeTo.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 25));
+		lblWelcomeTo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcomeTo.setBounds(115, 12, 199, 39);
+		frame.getContentPane().add(lblWelcomeTo);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Member");
+		chckbxNewCheckBox.setBackground(new Color(204, 153, 255));
+		chckbxNewCheckBox.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 11));
+		chckbxNewCheckBox.setHorizontalAlignment(SwingConstants.LEFT);
+		chckbxNewCheckBox.setBounds(303, 143, 74, 23);
+		
+		JButton btnNewButton = new JButton("Confirm");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(chckbxNewCheckBox.isSelected()) {					
+					tlm = new TLMenu(true);
+				}else {
+					tlm = new TLMenu(false);
+				}
+				
+				tlm.MenuFrame.setVisible(true);
+				TLMenu.custnamemenu = textField_Name.getText();
+				frame.dispose();
+			}
+		});
+		btnNewButton.setToolTipText("Confirm");
+		btnNewButton.setBackground(new Color(153, 51, 255));
+		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton.setBounds(196, 176, 83, 23);
+		
+		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(chckbxNewCheckBox);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\zi\\Documents\\SEM 2 (ongoing)\\SWC Work\\Project\\unnamed(2).png"));
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
