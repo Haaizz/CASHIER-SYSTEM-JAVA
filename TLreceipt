@@ -1,0 +1,220 @@
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.StringTokenizer;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+
+public class TLreceipt {
+
+	JFrame TLRFrame;
+
+	/**
+	 * Create the application.
+	 */
+	public TLreceipt(String custname, boolean member) {
+		
+		DecimalFormat priceformatter = new DecimalFormat("#0.00");
+		
+		TLRFrame = new JFrame();
+		TLRFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\zi\\Documents\\SEM 2 (ongoing)\\SWC Work\\Project\\unnamed(2).png"));
+		TLRFrame.getContentPane().setBackground(new Color(204, 153, 255));
+		TLRFrame.setBounds(100, 100, 456, 351);
+		TLRFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		TLRFrame.getContentPane().setLayout(null);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textArea.setBounds(32, 11, 378, 241);
+		TLRFrame.getContentPane().add(textArea);
+		
+		//used to exit the system
+		JButton btnNewButton = new JButton("Done");
+		btnNewButton.setBackground(new Color(153, 51, 255));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				TLRFrame = new JFrame("Done");
+				if (JOptionPane.showConfirmDialog(TLRFrame,"Confirm Exit?", "Thank You",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+				{
+					System.exit(0);
+				}
+			}
+		});
+		
+		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+		btnNewButton.setBounds(184, 265, 89, 23);
+		TLRFrame.getContentPane().add(btnNewButton);
+				
+		FileInputStream fip;
+		String allorders = "";
+		try {
+			fip = new FileInputStream("tealiveorders.txt");
+			BufferedReader br = new BufferedReader(new InputStreamReader(fip));
+			String line = br.readLine();
+			double totalprice = 0;
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				String tealivename = st.nextToken();
+				String selection = st.nextToken();
+				int quantity = Integer.parseInt(st.nextToken());
+				
+				//used to display the confirmed amount of items,price and total price(discounted price)
+				if(tealivename.equalsIgnoreCase("originalpearlselect")) {
+					allorders += "ORIGINAL PEARL \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("blackdiamond")) {
+					allorders += "BLACK DIAMOND \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.60) + "\n";
+					totalprice = totalprice + (quantity*8.60);
+				}
+				if(tealivename.equalsIgnoreCase("redbean")) {
+					allorders += "RED BEAN PEARL \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("hazelnutmilk")) {
+					allorders += "HAZELNUT MILK TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("earlgreymilk")) {
+					allorders += "EARL GREY MILK TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("bbmilk")) {
+					allorders += "BANG BANG MILK TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("bbfresh")) {
+					allorders += "BANG BANG FRESH MILK \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("bbchocolate")) {
+					allorders += "BANG BANG CHOCOLATE \t-  " + quantity + "\t  RM" + priceformatter.format(quantity*9.00) + "\n";
+					totalprice = totalprice + (quantity*9.00);
+				}
+				if(tealivename.equalsIgnoreCase("bbcoffee")) {
+					allorders += "BANG BANG COFFEE \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*9.00) + "\n";
+					totalprice = totalprice + (quantity*9.00);
+				}
+				if(tealivename.equalsIgnoreCase("smthsstrawberry")) {
+					allorders += "STRAWBERRY PUDDING \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthsmango")) {
+					allorders += "MANGO PASSION FRUIT \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthslychee")) {
+					allorders += "LYCHEE SAGO TEA \t\t-  " + quantity + "\t RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("smthsmalty")) {
+					allorders += "MALTY(HORLICKS) \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("ctroselle")) {
+					allorders += "RADIANT ROSELLE TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("ctrose")) {
+					allorders += "ROSE PUER TEA LATTE \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ctearllatte")) {
+					allorders += "EARL GREY TEA LATTE \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ctearl")) {
+					allorders += "EARL GREY TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.15) + "\n";
+					totalprice = totalprice + (quantity*7.15);
+				}
+				if(tealivename.equalsIgnoreCase("ctjasmine")) {
+					allorders += "JASMINE GREEN TEA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.15) + "\n";
+					totalprice = totalprice + (quantity*7.15);
+				}
+				if(tealivename.equalsIgnoreCase("cclava")) {
+					allorders += "MILK COCO SHAKA LAVA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*9.60) + "\n";
+					totalprice = totalprice + (quantity*9.60);
+				}
+				if(tealivename.equalsIgnoreCase("ccsuper")) {
+					allorders += "SUPERIOR COCO \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("cchazelnut")) {
+					allorders += "HAZELNUT COCO \t\t-  " + quantity + "\t   RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				if(tealivename.equalsIgnoreCase("cclatte")) {
+					allorders += "COCO LATTE - RM " + priceformatter.format(quantity*8.10) + "\n";
+					totalprice = totalprice + (quantity*8.10);
+				}
+				if(tealivename.equalsIgnoreCase("ccsmths")) {
+					allorders += "COCO SMOOTHIES \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfsign")) {
+					allorders += "SIGNATURE COFFEE \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cflatte")) {
+					allorders += "LATTE \t\t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfmocha")) {
+					allorders += "COCO MOCHA \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfhazelnut")) {
+					allorders += "HAZELNUT LATTE \t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*8.45) + "\n";
+					totalprice = totalprice + (quantity*8.45);
+				}
+				if(tealivename.equalsIgnoreCase("cfamericano")) {
+					allorders += "AMERICANO \t\t\t-  " + quantity + "\t  RM" + priceformatter.format(quantity*7.55) + "\n";
+					totalprice = totalprice + (quantity*7.55);
+				}
+				line = br.readLine();
+				
+			}
+			
+			fip.getChannel().position(0);
+			br = new BufferedReader(new InputStreamReader(fip));
+			br.close();
+			
+			//calculations for total price if user is a member
+			String totalpricestatement;
+			if(member == true) {
+				totalpricestatement = priceformatter.format(totalprice - (totalprice*0.10)) + " with 10% Discount";
+			}
+			
+			//use to display final total as a receipt
+			else 
+			{
+				totalpricestatement = String.valueOf(priceformatter.format(totalprice));
+			}
+			
+			textArea.setText("===================================================\n" + 
+							"\t             TeaLive Order Receipt\n" + "Customer Name:\t\t\t" + custname + 
+							"\n===================================================\n" + allorders + "\n===================================================\n" 
+							+"Total Price RM  :   ...........................................   " + totalpricestatement +
+							"\n===================================================\n" + "\t                        Thank You\n" + 
+							"===================================================\n");
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+}
