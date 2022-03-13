@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -100,15 +101,31 @@ public class TLwelcome {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(chckbxNewCheckBox.isSelected()) {					
-					tlm = new TLMenu(true);
-				}else {
-					tlm = new TLMenu(false);
+				String name = textField_Name.getText();
+				
+				if(name.isEmpty())
+				{
+					JOptionPane.showMessageDialog(null,"Name Must Be Entered");
 				}
 				
-				tlm.MenuFrame.setVisible(true);
-				TLMenu.custnamemenu = textField_Name.getText();
-				frame.dispose();
+				else
+				{
+					if(chckbxNewCheckBox.isSelected()) 
+					{					
+						tlm = new TLMenu(true);
+					}else {
+						tlm = new TLMenu(false);
+					}
+					
+					tlm.MenuFrame.setVisible(true);
+					TLMenu.custnamemenu = textField_Name.getText();
+					frame.dispose();
+				}
+				
+				
+				
+				
+				
 			}
 		});
 		btnNewButton.setToolTipText("Confirm");
