@@ -197,6 +197,7 @@ public class TLMenu {
 		panel_1_1_1.add(lblNewLabel_4_1_4);
 		
 		textField = new JTextField();
+		textField.setEnabled(false);
 		textField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -216,6 +217,7 @@ public class TLMenu {
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setEnabled(false);
 		textField_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -235,6 +237,7 @@ public class TLMenu {
 		panel_1_1_1.add(textField_1);
 		
 		textField_2 = new JTextField();
+		textField_2.setEnabled(false);
 		textField_2.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -254,6 +257,7 @@ public class TLMenu {
 		panel_1_1_1.add(textField_2);
 		
 		textField_3 = new JTextField();
+		textField_3.setEnabled(false);
 		textField_3.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -273,6 +277,7 @@ public class TLMenu {
 		panel_1_1_1.add(textField_3);
 		
 		textField_4 = new JTextField();
+		textField_4.setEnabled(false);
 		textField_4.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -291,27 +296,120 @@ public class TLMenu {
 		textField_4.setBounds(161, 136, 20, 14);
 		panel_1_1_1.add(textField_4);
 		
-		originalpearlselect = new JRadioButton("New radio button");
+		originalpearlselect = new JRadioButton("OP");
+		originalpearlselect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(originalpearlselect.isSelected())
+				{
+					textField.setEnabled(true);
+					textField.setText("");
+					textField.requestFocus();
+				}
+				
+				else
+				{
+					textField.setEnabled(false);
+					textField.requestFocus();
+				}
+				
+			}
+		});
+		
 		originalpearlselect.setBackground(new Color(0, 153, 153));
 		originalpearlselect.setBounds(135, 32, 20, 23);
 		panel_1_1_1.add(originalpearlselect);
 		
-		rdbtnNewRadioButton_10_9_5 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_5 = new JRadioButton("BD");
+		rdbtnNewRadioButton_10_9_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_5.isSelected())
+				{
+					textField_1.setEnabled(true);
+					textField_1.setText("");
+					textField_1.requestFocus();
+				}
+				
+				else
+				{
+					textField_1.setEnabled(false);
+					textField_1.requestFocus();
+				}
+				
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_5.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_5.setBounds(135, 57, 20, 23);
 		panel_1_1_1.add(rdbtnNewRadioButton_10_9_5);
 		
-		rdbtnNewRadioButton_10_9_6 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_6 = new JRadioButton("RBP");
+		rdbtnNewRadioButton_10_9_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_6.isSelected())
+				{
+					textField_2.setEnabled(true);
+					textField_2.setText("");
+					textField_2.requestFocus();
+				}
+				
+				else
+				{
+					textField_2.setEnabled(false);
+					textField_2.requestFocus();
+				}
+				
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_6.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_6.setBounds(135, 82, 20, 23);
 		panel_1_1_1.add(rdbtnNewRadioButton_10_9_6);
 		
-		rdbtnNewRadioButton_10_9_7 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_7 = new JRadioButton("EGMT");
+		rdbtnNewRadioButton_10_9_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_7.isSelected())
+				{
+					textField_4.setEnabled(true);
+					textField_4.setText("");
+					textField_4.requestFocus();
+				}
+				
+				else
+				{
+					textField_4.setEnabled(false);
+					textField_4.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_7.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_7.setBounds(135, 132, 20, 23);
 		panel_1_1_1.add(rdbtnNewRadioButton_10_9_7);
 		
-		rdbtnNewRadioButton_10_9_8 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_8 = new JRadioButton("HMT");
+		rdbtnNewRadioButton_10_9_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_8.isSelected())
+				{
+					textField_3.setEnabled(true);
+					textField_3.setText("");
+					textField_3.requestFocus();
+				}
+				
+				else
+				{
+					textField_3.setEnabled(false);
+					textField_3.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_8.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_8.setBounds(135, 107, 20, 23);
 		panel_1_1_1.add(rdbtnNewRadioButton_10_9_8);
@@ -393,6 +491,7 @@ public class TLMenu {
 		panel_1_1_1_1.add(lblNewLabel_4_1_3_1);
 		
 		textField_5 = new JTextField();
+		textField_5.setEnabled(false);
 		textField_5.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -412,6 +511,7 @@ public class TLMenu {
 		panel_1_1_1_1.add(textField_5);
 		
 		textField_6 = new JTextField();
+		textField_6.setEnabled(false);
 		textField_6.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -431,6 +531,7 @@ public class TLMenu {
 		panel_1_1_1_1.add(textField_6);
 		
 		textField_7 = new JTextField();
+		textField_7.setEnabled(false);
 		textField_7.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -450,6 +551,7 @@ public class TLMenu {
 		panel_1_1_1_1.add(textField_7);
 		
 		textField_8 = new JTextField();
+		textField_8.setEnabled(false);
 		textField_8.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -468,22 +570,97 @@ public class TLMenu {
 		textField_8.setBounds(161, 108, 20, 14);
 		panel_1_1_1_1.add(textField_8);
 		
-		rdbtnNewRadioButton_10 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10 = new JRadioButton("SP");
+		rdbtnNewRadioButton_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10.isSelected())
+				{
+					textField_5.setEnabled(true);
+					textField_5.setText("");
+					textField_5.requestFocus();
+				}
+				
+				else
+				{
+					textField_5.setEnabled(false);
+					textField_5.requestFocus();
+				}
+				
+			}
+		});
+		
 		rdbtnNewRadioButton_10.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10.setBounds(135, 32, 20, 23);
 		panel_1_1_1_1.add(rdbtnNewRadioButton_10);
 		
-		rdbtnNewRadioButton_10_1 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_1 = new JRadioButton("MPF");
+		rdbtnNewRadioButton_10_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_1.isSelected())
+				{
+					textField_6.setEnabled(true);
+					textField_6.setText("");
+					textField_6.requestFocus();
+				}
+				
+				else
+				{
+					textField_6.setEnabled(false);
+					textField_6.requestFocus();
+				}
+				
+			}
+		});
+		
 		rdbtnNewRadioButton_10_1.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_1.setBounds(135, 57, 20, 23);
 		panel_1_1_1_1.add(rdbtnNewRadioButton_10_1);
 		
-		rdbtnNewRadioButton_10_2 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_2 = new JRadioButton("LST");
+		rdbtnNewRadioButton_10_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_2.isSelected())
+				{
+					textField_7.setEnabled(true);
+					textField_7.setText("");
+					textField_7.requestFocus();
+				}
+				
+				else
+				{
+					textField_7.setEnabled(false);
+					textField_7.requestFocus();
+				}
+				
+			}
+		});
+		
 		rdbtnNewRadioButton_10_2.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_2.setBounds(135, 82, 20, 23);
 		panel_1_1_1_1.add(rdbtnNewRadioButton_10_2);
 		
-		rdbtnNewRadioButton_10_3 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_3 = new JRadioButton("MH");
+		rdbtnNewRadioButton_10_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_3.isSelected())
+				{
+					textField_8.setEnabled(true);
+					textField_8.setText("");
+					textField_8.requestFocus();
+				}
+				
+				else
+				{
+					textField_8.setEnabled(false);
+					textField_8.requestFocus();
+				}
+				
+			}
+		});
 		rdbtnNewRadioButton_10_3.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_3.setBounds(135, 107, 20, 23);
 		panel_1_1_1_1.add(rdbtnNewRadioButton_10_3);
@@ -579,6 +756,7 @@ public class TLMenu {
 		panel_1_1_1_2.add(lblNewLabel_4_1_4_2);
 		
 		textField_11 = new JTextField();
+		textField_11.setEnabled(false);
 		textField_11.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -598,6 +776,7 @@ public class TLMenu {
 		panel_1_1_1_2.add(textField_11);
 		
 		textField_12 = new JTextField();
+		textField_12.setEnabled(false);
 		textField_12.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -617,6 +796,7 @@ public class TLMenu {
 		panel_1_1_1_2.add(textField_12);
 		
 		textField_13 = new JTextField();
+		textField_13.setEnabled(false);
 		textField_13.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -636,6 +816,7 @@ public class TLMenu {
 		panel_1_1_1_2.add(textField_13);
 		
 		textField_14 = new JTextField();
+		textField_14.setEnabled(false);
 		textField_14.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -655,6 +836,7 @@ public class TLMenu {
 		panel_1_1_1_2.add(textField_14);
 		
 		textField_9 = new JTextField();
+		textField_9.setEnabled(false);
 		textField_9.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -673,27 +855,117 @@ public class TLMenu {
 		textField_9.setBounds(161, 36, 20, 14);
 		panel_1_1_1_2.add(textField_9);
 		
-		rdbtnNewRadioButton = new JRadioButton("New radio button");
+		rdbtnNewRadioButton = new JRadioButton("MCSL");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton.isSelected())
+				{
+					textField_9.setEnabled(true);
+					textField_9.setText("");
+					textField_9.requestFocus();
+				}
+				
+				else
+				{
+					textField_9.setEnabled(false);
+					textField_9.requestFocus();
+				}
+			}
+		});
+
 		rdbtnNewRadioButton.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton.setBounds(135, 32, 20, 23);
 		panel_1_1_1_2.add(rdbtnNewRadioButton);
 		
-		rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_1 = new JRadioButton("SC");
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_1.isSelected())
+				{
+					textField_11.setEnabled(true);
+					textField_11.setText("");
+					textField_11.requestFocus();
+				}
+				
+				else
+				{
+					textField_11.setEnabled(false);
+					textField_11.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_1.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_1.setBounds(135, 57, 20, 23);
 		panel_1_1_1_2.add(rdbtnNewRadioButton_1);
 		
-		rdbtnNewRadioButton_2 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_2 = new JRadioButton("HC");
+		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_2.isSelected())
+				{
+					textField_12.setEnabled(true);
+					textField_12.setText("");
+					textField_12.requestFocus();
+				}
+				
+				else
+				{
+					textField_12.setEnabled(false);
+					textField_12.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_2.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_2.setBounds(135, 82, 20, 23);
 		panel_1_1_1_2.add(rdbtnNewRadioButton_2);
 		
-		rdbtnNewRadioButton_3 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_3 = new JRadioButton("CL");
+		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_3.isSelected())
+				{
+					textField_13.setEnabled(true);
+					textField_13.setText("");
+					textField_13.requestFocus();
+				}
+				
+				else
+				{
+					textField_13.setEnabled(false);
+					textField_13.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_3.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_3.setBounds(135, 107, 20, 23);
 		panel_1_1_1_2.add(rdbtnNewRadioButton_3);
 		
-		rdbtnNewRadioButton_4 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_4 = new JRadioButton("CS");
+		rdbtnNewRadioButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_4.isSelected())
+				{
+					textField_14.setEnabled(true);
+					textField_14.setText("");
+					textField_14.requestFocus();
+				}
+				
+				else
+				{
+					textField_14.setEnabled(false);
+					textField_14.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_4.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_4.setBounds(135, 132, 20, 23);
 		panel_1_1_1_2.add(rdbtnNewRadioButton_4);
@@ -775,6 +1047,7 @@ public class TLMenu {
 		panel_1_1_1_3.add(lblNewLabel_4_1_3_3);
 		
 		textField_10 = new JTextField();
+		textField_10.setEnabled(false);
 		textField_10.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -794,6 +1067,7 @@ public class TLMenu {
 		panel_1_1_1_3.add(textField_10);
 		
 		textField_15 = new JTextField();
+		textField_15.setEnabled(false);
 		textField_15.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -813,6 +1087,7 @@ public class TLMenu {
 		panel_1_1_1_3.add(textField_15);
 		
 		textField_16 = new JTextField();
+		textField_16.setEnabled(false);
 		textField_16.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -832,6 +1107,7 @@ public class TLMenu {
 		panel_1_1_1_3.add(textField_16);
 		
 		textField_17 = new JTextField();
+		textField_17.setEnabled(false);
 		textField_17.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -850,22 +1126,94 @@ public class TLMenu {
 		textField_17.setBounds(161, 111, 20, 14);
 		panel_1_1_1_3.add(textField_17);
 		
-		rdbtnNewRadioButton_10_9 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9 = new JRadioButton("BBMT");
+		rdbtnNewRadioButton_10_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9.isSelected())
+				{
+					textField_10.setEnabled(true);
+					textField_10.setText("");
+					textField_10.requestFocus();
+				}
+				
+				else
+				{
+					textField_10.setEnabled(false);
+					textField_10.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9.setBounds(137, 32, 20, 23);
 		panel_1_1_1_3.add(rdbtnNewRadioButton_10_9);
 		
-		rdbtnNewRadioButton_10_9_1 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_1 = new JRadioButton("BBFM");
+		rdbtnNewRadioButton_10_9_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_1.isSelected())
+				{
+					textField_15.setEnabled(true);
+					textField_15.setText("");
+					textField_15.requestFocus();
+				}
+				
+				else
+				{
+					textField_15.setEnabled(false);
+					textField_15.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_1.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_1.setBounds(138, 57, 20, 23);
 		panel_1_1_1_3.add(rdbtnNewRadioButton_10_9_1);
 		
-		rdbtnNewRadioButton_10_9_2 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_2 = new JRadioButton("BBC");
+		rdbtnNewRadioButton_10_9_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_2.isSelected())
+				{
+					textField_16.setEnabled(true);
+					textField_16.setText("");
+					textField_16.requestFocus();
+				}
+				
+				else
+				{
+					textField_16.setEnabled(false);
+					textField_16.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_2.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_2.setBounds(138, 82, 20, 23);
 		panel_1_1_1_3.add(rdbtnNewRadioButton_10_9_2);
 		
-		rdbtnNewRadioButton_10_9_3 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_9_3 = new JRadioButton("BBCOF");
+		rdbtnNewRadioButton_10_9_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_9_3.isSelected())
+				{
+					textField_17.setEnabled(true);
+					textField_17.setText("");
+					textField_17.requestFocus();
+				}
+				
+				else
+				{
+					textField_17.setEnabled(false);
+					textField_17.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_9_3.setBackground(new Color(0, 153, 153));
 		rdbtnNewRadioButton_10_9_3.setBounds(138, 107, 20, 23);
 		panel_1_1_1_3.add(rdbtnNewRadioButton_10_9_3);
@@ -961,6 +1309,7 @@ public class TLMenu {
 		panel_1_1_1_4.add(lblNewLabel_4_1_4_4);
 		
 		textField_18 = new JTextField();
+		textField_18.setEnabled(false);
 		textField_18.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -980,6 +1329,20 @@ public class TLMenu {
 		panel_1_1_1_4.add(textField_18);
 		
 		textField_19 = new JTextField();
+		textField_19.setEnabled(false);
+		textField_19.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) 
+			{
+				char c = e.getKeyChar();
+				
+				if(!Character.isDigit(c)||(c == KeyEvent.VK_BACK_SPACE)||(c == KeyEvent.VK_DELETE))
+				{
+					e.consume();
+				}
+			}
+		});
+		
 		textField_19.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_19.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 10));
 		textField_19.setColumns(10);
@@ -987,6 +1350,7 @@ public class TLMenu {
 		panel_1_1_1_4.add(textField_19);
 		
 		textField_20 = new JTextField();
+		textField_20.setEnabled(false);
 		textField_20.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1006,6 +1370,7 @@ public class TLMenu {
 		panel_1_1_1_4.add(textField_20);
 		
 		textField_21 = new JTextField();
+		textField_21.setEnabled(false);
 		textField_21.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1025,6 +1390,7 @@ public class TLMenu {
 		panel_1_1_1_4.add(textField_21);
 		
 		textField_22 = new JTextField();
+		textField_22.setEnabled(false);
 		textField_22.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1043,27 +1409,117 @@ public class TLMenu {
 		textField_22.setBounds(161, 137, 20, 14);
 		panel_1_1_1_4.add(textField_22);
 		
-		rdbtnNewRadioButton_10_4 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_4 = new JRadioButton("RRT");
+		rdbtnNewRadioButton_10_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_4.isSelected())
+				{
+					textField_18.setEnabled(true);
+					textField_18.setText("");
+					textField_18.requestFocus();
+				}
+				
+				else
+				{
+					textField_18.setEnabled(false);
+					textField_18.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_4.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_4.setBounds(135, 32, 20, 23);
 		panel_1_1_1_4.add(rdbtnNewRadioButton_10_4);
 		
-		rdbtnNewRadioButton_10_5 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_5 = new JRadioButton("RPTL");
+		rdbtnNewRadioButton_10_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_5.isSelected())
+				{
+					textField_19.setEnabled(true);
+					textField_19.setText("");
+					textField_19.requestFocus();
+				}
+				
+				else
+				{
+					textField_19.setEnabled(false);
+					textField_19.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_5.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_5.setBounds(135, 57, 20, 23);
 		panel_1_1_1_4.add(rdbtnNewRadioButton_10_5);
 		
-		rdbtnNewRadioButton_10_6 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_6 = new JRadioButton("EGTL");
+		rdbtnNewRadioButton_10_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_6.isSelected())
+				{
+					textField_20.setEnabled(true);
+					textField_20.setText("");
+					textField_20.requestFocus();
+				}
+				
+				else
+				{
+					textField_20.setEnabled(false);
+					textField_20.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_6.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_6.setBounds(135, 82, 20, 23);
 		panel_1_1_1_4.add(rdbtnNewRadioButton_10_6);
 		
-		rdbtnNewRadioButton_10_7 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_7 = new JRadioButton("EGT");
+		rdbtnNewRadioButton_10_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_7.isSelected())
+				{
+					textField_21.setEnabled(true);
+					textField_21.setText("");
+					textField_21.requestFocus();
+				}
+				
+				else
+				{
+					textField_21.setEnabled(false);
+					textField_21.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_7.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_7.setBounds(135, 107, 20, 23);
 		panel_1_1_1_4.add(rdbtnNewRadioButton_10_7);
 		
-		rdbtnNewRadioButton_10_8 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_10_8 = new JRadioButton("JGT");
+		rdbtnNewRadioButton_10_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_10_8.isSelected())
+				{
+					textField_22.setEnabled(true);
+					textField_22.setText("");
+					textField_22.requestFocus();
+				}
+				
+				else
+				{
+					textField_22.setEnabled(false);
+					textField_22.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_10_8.setBackground(new Color(153, 102, 255));
 		rdbtnNewRadioButton_10_8.setBounds(135, 132, 20, 23);
 		panel_1_1_1_4.add(rdbtnNewRadioButton_10_8);
@@ -1159,6 +1615,7 @@ public class TLMenu {
 		panel_1_1_1_5.add(lblNewLabel_4_1_4_5);
 		
 		textField_25 = new JTextField();
+		textField_25.setEnabled(false);
 		textField_25.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1178,6 +1635,7 @@ public class TLMenu {
 		panel_1_1_1_5.add(textField_25);
 		
 		textField_26 = new JTextField();
+		textField_26.setEnabled(false);
 		textField_26.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1197,6 +1655,7 @@ public class TLMenu {
 		panel_1_1_1_5.add(textField_26);
 		
 		textField_27 = new JTextField();
+		textField_27.setEnabled(false);
 		textField_27.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1216,6 +1675,7 @@ public class TLMenu {
 		panel_1_1_1_5.add(textField_27);
 		
 		textField_28 = new JTextField();
+		textField_28.setEnabled(false);
 		textField_28.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1235,6 +1695,7 @@ public class TLMenu {
 		panel_1_1_1_5.add(textField_28);
 		
 		textField_29 = new JTextField();
+		textField_29.setEnabled(false);
 		textField_29.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) 
@@ -1253,27 +1714,117 @@ public class TLMenu {
 		textField_29.setBounds(161, 136, 20, 14);
 		panel_1_1_1_5.add(textField_29);
 		
-		rdbtnNewRadioButton_5 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_5 = new JRadioButton("SCOF");
+		rdbtnNewRadioButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_5.isSelected())
+				{
+					textField_25.setEnabled(true);
+					textField_25.setText("");
+					textField_25.requestFocus();
+				}
+				
+				else
+				{
+					textField_25.setEnabled(false);
+					textField_25.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_5.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_5.setBounds(135, 32, 20, 23);
 		panel_1_1_1_5.add(rdbtnNewRadioButton_5);
 		
-		rdbtnNewRadioButton_6 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_6 = new JRadioButton("L");
+		rdbtnNewRadioButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_6.isSelected())
+				{
+					textField_26.setEnabled(true);
+					textField_26.setText("");
+					textField_26.requestFocus();
+				}
+				
+				else
+				{
+					textField_26.setEnabled(false);
+					textField_26.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_6.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_6.setBounds(135, 57, 20, 23);
 		panel_1_1_1_5.add(rdbtnNewRadioButton_6);
 		
-		rdbtnNewRadioButton_7 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_7 = new JRadioButton("CM");
+		rdbtnNewRadioButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_7.isSelected())
+				{
+					textField_27.setEnabled(true);
+					textField_27.setText("");
+					textField_27.requestFocus();
+				}
+				
+				else
+				{
+					textField_27.setEnabled(false);
+					textField_27.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_7.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_7.setBounds(135, 82, 20, 23);
 		panel_1_1_1_5.add(rdbtnNewRadioButton_7);
 		
-		rdbtnNewRadioButton_8 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_8 = new JRadioButton("HL");
+		rdbtnNewRadioButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_8.isSelected())
+				{
+					textField_28.setEnabled(true);
+					textField_28.setText("");
+					textField_28.requestFocus();
+				}
+				
+				else
+				{
+					textField_28.setEnabled(false);
+					textField_28.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_8.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_8.setBounds(135, 107, 20, 23);
 		panel_1_1_1_5.add(rdbtnNewRadioButton_8);
 		
-		rdbtnNewRadioButton_9 = new JRadioButton("New radio button");
+		rdbtnNewRadioButton_9 = new JRadioButton("AME");
+		rdbtnNewRadioButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(rdbtnNewRadioButton_9.isSelected())
+				{
+					textField_29.setEnabled(true);
+					textField_29.setText("");
+					textField_29.requestFocus();
+				}
+				
+				else
+				{
+					textField_29.setEnabled(false);
+					textField_29.requestFocus();
+				}
+			}
+		});
+		
 		rdbtnNewRadioButton_9.setBackground(new Color(255, 51, 153));
 		rdbtnNewRadioButton_9.setBounds(135, 132, 20, 23);
 		panel_1_1_1_5.add(rdbtnNewRadioButton_9);
